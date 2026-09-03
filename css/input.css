@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SAITEK custom layers — merged from previous base/components/theme */
+@layer base {
+  :root {
+    --navy: #0a0f1e;
+    --navy-soft: #0f172a;
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --orange: #ff4d00;
+    --orange-hover: #e04400;
+    --border: #e2e8f0;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  body {
+    background: var(--bg);
+  }
+  img,
+  iframe {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+@layer components {
+  .container {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .hero-grid {
+    background-image:
+      linear-gradient(rgba(10, 15, 30, 0.75), rgba(10, 15, 30, 0.85)),
+      url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070');
+    background-size: cover;
+    background-position: center;
+  }
+  .glass {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    color: transparent;
+  }
+  @media (max-width: 640px) {
+    .hero-grid .text-stroke {
+      -webkit-text-stroke: 0.7px rgba(255, 255, 255, 0.15);
+    }
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: #fff;
+    font-weight: 900;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover {
+    background: var(--orange-hover);
+  }
+  .btn-dark {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 900;
+    transition: background 0.2s;
+  }
+  .btn-dark:hover {
+    background: #000;
+  }
+  .icon-box {
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    background: var(--navy);
+    color: #fff;
+  }
+  .icon-box--light {
+    background: #f1f5f9;
+    color: var(--navy);
+  }
+  .icon-box--orange {
+    background: var(--orange);
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: var(--navy);
+    box-shadow: 0 20px 60px rgba(10, 15, 30, 0.08);
+  }
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--orange);
+    font-weight: 900;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  .section-label::before {
+    content: '';
+    width: 2rem;
+    height: 2px;
+    background: var(--orange);
+  }
+  .filters {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--card);
+    padding: 0.625rem 1rem;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: border-color 0.2s;
+  }
+  .filter-btn:hover {
+    border-color: var(--navy);
+  }
+  .filter-btn.is-active {
+    background: var(--navy);
+    color: #fff;
+    border-color: var(--navy);
+    font-weight: 900;
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--navy);
+  }
+}
+
+/* Dark mode — uses CSS vars, zero !important */
+html.dark {
+  color-scheme: dark;
+  --bg: #020617;
+  --card: #0f172a;
+  --border: #1e293b;
+}
+html.dark body {
+  background: var(--bg);
+  color: #e2e8f0;
+}
+html.dark #navbar {
+  background: rgba(15, 23, 42, 0.96);
+  border-color: var(--border);
+}
+html.dark .bg-white {
+  background-color: var(--card);
+}
+html.dark [class*='bg-[#F8FAFC]'],
+html.dark #contact {
+  background: var(--bg);
+}
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: #1e293b;
+}

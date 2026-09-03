@@ -1,0 +1,54 @@
+/* base.css — reset, vars, layout primitives */
+:root {
+  --navy: #0a0f1e;
+  --navy-soft: #0f172a;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --muted: #64748b;
+  --orange: #ff4d00;
+  --orange-hover: #e04400;
+  --border: #e2e8f0;
+  --radius: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: var(--bg);
+  color: #1e293b;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* layout container — replaces 12× max-w-[1280px] mx-auto px-6 */
+.container {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* focus */
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}

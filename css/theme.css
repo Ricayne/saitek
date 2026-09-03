@@ -1,0 +1,92 @@
+/* theme.css — dark mode via CSS vars, no !important */
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg: #020617;
+  --card: #0f172a;
+  --soft: #1e293b;
+  --border: #1e293b;
+}
+
+html.dark body {
+  background: var(--bg);
+  color: #e2e8f0;
+}
+
+/* surfaces */
+html.dark #navbar {
+  background: rgba(15, 23, 42, 0.96);
+  border-color: var(--border);
+}
+html.dark .bg-white {
+  background-color: var(--card);
+}
+html.dark [class*="bg-[#F8FAFC]"],
+html.dark #contact {
+  background: var(--bg);
+}
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: var(--soft);
+}
+html.dark .bg-white\/95 {
+  background: rgba(15, 23, 42, 0.96);
+}
+
+/* text */
+html.dark [class*="text-[#0A0F1E]"],
+html.dark .text-slate-900 {
+  color: #f8fafc;
+}
+html.dark .text-slate-800 {
+  color: #f1f5f9;
+}
+html.dark .text-slate-700 {
+  color: #e2e8f0;
+}
+html.dark .text-slate-600 {
+  color: #cbd5e1;
+}
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8;
+}
+html.dark .border-slate-200 {
+  border-color: var(--border);
+}
+html.dark .divide-slate-200 > * + * {
+  border-color: var(--border);
+}
+
+/* forms */
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: var(--soft);
+  color: #f8fafc;
+  border-color: #334155;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+html.dark .shadow-\[0_20px_60px_rgba\(10\,15\,30\,\.06\)\] {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
