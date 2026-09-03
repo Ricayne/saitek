@@ -5,8 +5,11 @@ const htmlEl = document.documentElement;
 // ---- dark mode ----
 function initDarkMode() {
   const saved = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (saved === "dark" || (!saved && prefersDark)) htmlEl.classList.add("dark");
+  if (saved === "dark" || (saved !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    htmlEl.classList.add("dark");
+  } else {
+    htmlEl.classList.remove("dark");
+  }
 
   document.getElementById("darkToggle")?.addEventListener("click", () => {
     const isDark = htmlEl.classList.toggle("dark");
